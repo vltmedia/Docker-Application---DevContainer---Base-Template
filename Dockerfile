@@ -12,6 +12,6 @@ CMD ["tail", "-f", "/dev/null"]
 # ---------- prod ----------
 FROM base AS prod
 # bring your app in only for the prod image
-COPY . /app
+COPY ./src /app
 RUN npm install --only=production
-CMD ["npm", "start"]
+CMD ["node", "index.js"]
