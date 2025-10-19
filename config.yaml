@@ -13,7 +13,8 @@ dockerfileTargets:
 
 # Optional: add environment to pass into the container
 env:
-  EXAMPLE_VAR: some-value
+  API_URL: "http://host.docker.internal:8055"
+  API_KEY: "your-api-key "
 
 # Optional: extra args for 'docker build' and 'docker run'
 buildArgs: []                                # e.g. ["--build-arg", "FOO=bar"]
