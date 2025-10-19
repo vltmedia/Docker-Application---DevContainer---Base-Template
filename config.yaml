@@ -1,0 +1,39 @@
+# config.yaml
+appName: nodejs-template        # container name
+imageOrg: your-dockerhub-username  # e.g. "mydockerhubuser"
+imageName: nodejs-template
+version: 0.1.0                             # e.g. "1.3.0" or "latest"
+port: 5000
+restartPolicy: unless-stopped               # no, on-failure, unless-stopped, always
+gpus: all                                   # "all" | "device=0" | "" (omit to disable)
+
+dockerfileTargets:
+  dev: dev
+  prod: prod
+
+# Optional: add environment to pass into the container
+env:
+  EXAMPLE_VAR: some-value
+
+# Optional: extra args for 'docker build' and 'docker run'
+buildArgs: []                                # e.g. ["--build-arg", "FOO=bar"]
+runArgs: []                                  # e.g. ["--network", "host"]
+
+# Volumes (host:container). ~ will be expanded.
+volumes:
+  - "~/.cache:/root/.cache"
+  - "./:/data"
+
+
+
+# Optional: healthcheck (run inside the container)
+healthcheck:
+  test: ["CMD", "curl", "-fsS", "http://localhost:5000/health"]
+  interval: "15s"
+  timeout: "5s"
+  retries: 5
+  startPeriod: "30s"
+
+# Optional: tag on publish in addition to :version
+# When publishing, we'll push both org/name:version and org/name:latest if this flag is true
+tagLatestOnPublish: true

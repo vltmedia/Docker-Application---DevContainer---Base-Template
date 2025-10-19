@@ -1,0 +1,26 @@
+{
+  "name": "node-app-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-dev": "node scripts/build.js dev",
+    "build-prod": "node scripts/build.js prod",
+
+    "start": "npm run stop-remove && npm run build-dev && node scripts/run.js",
+    "start-prod": "npm run stop-remove && npm run build-prod && node scripts/run.js",
+
+    "stop-remove": "node scripts/stop-remove.js",
+    "logs": "node scripts/logs.js",
+    "ps": "node scripts/ps.js",
+
+    "publish": "node scripts/publish.js",
+
+    "docker:tag": "node scripts/tag.js"
+  },
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
