@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine AS base
 RUN apk add --no-cache --update nodejs npm
 WORKDIR /app
 COPY package*.json ./
