@@ -23,7 +23,7 @@ runArgs: []                                  # e.g. ["--network", "host"]
 # Volumes (host:container). ~ will be expanded.
 volumes:
   - "~/.cache:/root/.cache"
-  - "./:/data"
+  - "./:/app"
 
 
 
